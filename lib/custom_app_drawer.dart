@@ -10,8 +10,6 @@ class CustomAppDrawer extends StatefulWidget {
 }
 
 class _CustomAppDrawerState extends State<CustomAppDrawer> {
-  Color hoverColor = Colors.grey;
-  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Container(
