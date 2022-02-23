@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:photos/widgets/menu_item.dart';
 
 class CustomAppDrawer extends StatefulWidget {
   const CustomAppDrawer({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
     return Container(
       height: double.infinity,
       width: 320,
-      color: const Color.fromRGBO(62, 62, 62, 1),
+      color: const Color.fromRGBO(60, 60, 60, 1),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,100 +77,47 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5,
-                        ),
-                        child: MouseRegion(
-                          onEnter: (event) {
-                            setState(() {
-                              isSelected = true;
-                            });
-                          },
-                          onExit: (event) {
-                            setState(() {
-                              isSelected = false;
-                            });
-                          },
-                          child: Container(
-                            color:
-                                !isSelected ? Colors.transparent : hoverColor,
-                            child: ListTile(
-                              selected: true,
-                              leading: const Icon(
-                                Icons.music_note_rounded,
-                                color: Colors.white,
-                              ),
-                              title: const Text(
-                                "Ma musique",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 15),
-                              ),
-                              onTap: () {},
-                            ),
+                      const Padding(
+                          padding: EdgeInsets.only(
+                            top: 5,
                           ),
-                        ),
-                      ),
-                      MouseRegion(
-                        onEnter: (event) {
-                          setState(() {
-                            isSelected = true;
-                          });
-                        },
-                        onExit: (event) {
-                          setState(() {
-                            isSelected = false;
-                          });
-                        },
-                        child: Container(
-                          color: !isSelected ? Colors.transparent : hoverColor,
-                          child: ListTile(
-                            selected: true,
-                            leading: const Icon(
-                              Icons.access_time,
-                              color: Colors.white,
-                            ),
-                            title: const Text(
-                              "Lectures récentes",
+                          child: MenuItem(
+                            title: Text(
+                              "Ma musique",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 15),
                             ),
-                            onTap: () {},
-                          ),
-                        ),
-                      ),
-                      MouseRegion(
-                        onEnter: (event) {
-                          setState(() {
-                            isSelected = true;
-                          });
-                        },
-                        onExit: (event) {
-                          setState(() {
-                            isSelected = false;
-                          });
-                        },
-                        child: Container(
-                          color: !isSelected ? Colors.transparent : hoverColor,
-                          child: ListTile(
-                            selected: true,
-                            leading: const Icon(
-                              Icons.bar_chart,
+                            leading: Icon(
+                              Icons.music_note_rounded,
                               color: Colors.white,
                             ),
-                            title: const Text(
-                              "Lecture en cours",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15),
-                            ),
-                            onTap: () {},
-                          ),
+                          )),
+                      const MenuItem(
+                        title: Text(
+                          "Lectures récentes",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 15),
+                        ),
+                        leading: Icon(
+                          Icons.access_time,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const MenuItem(
+                        title: Text(
+                          "Lecture en cours",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 15),
+                        ),
+                        leading: Icon(
+                          Icons.bar_chart,
+                          color: Colors.white,
                         ),
                       ),
                       const Padding(
@@ -180,81 +128,39 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                           height: 1,
                         ),
                       ),
-                      MouseRegion(
-                        onEnter: (event) {
-                          setState(() {
-                            isSelected = true;
-                          });
-                        },
-                        onExit: (event) {
-                          setState(() {
-                            isSelected = false;
-                          });
-                        },
-                        child: Container(
-                          color: !isSelected ? Colors.transparent : hoverColor,
-                          child: ListTile(
-                            selected: true,
-                            leading: const Icon(
-                              Icons.bar_chart,
+                      MenuItem(
+                        title: const Text(
+                          "Playlists",
+                          style: TextStyle(
                               color: Colors.white,
-                            ),
-                            title: const Text(
-                              "Lecture en cours",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15),
-                            ),
-                            onTap: () {},
-                            trailing: IconButton(
-                              icon: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {},
-                            ),
+                              fontWeight: FontWeight.normal,
+                              fontSize: 15),
+                        ),
+                        leading: const Icon(
+                          Icons.playlist_play_sharp,
+                          color: Colors.white,
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(
+                            Icons.add,
+                            color: Colors.white,
                           ),
+                          onPressed: () {},
                         ),
                       ),
                       ...List.generate(
                         30,
-                        (index) => MouseRegion(
-                          onEnter: (event) {
-                            setState(() {
-                              isSelected = true;
-                            });
-                          },
-                          onExit: (event) {
-                            setState(() {
-                              isSelected = false;
-                            });
-                          },
-                          child: Container(
-                            color:
-                                !isSelected ? Colors.transparent : hoverColor,
-                            child: ListTile(
-                              selected: true,
-                              leading: const Icon(
-                                Icons.bar_chart,
+                        (index) => const MenuItem(
+                          title: Text(
+                            "Starboy",
+                            style: TextStyle(
                                 color: Colors.white,
-                              ),
-                              title: const Text(
-                                "Lecture en cours",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 15),
-                              ),
-                              onTap: () {},
-                              trailing: IconButton(
-                                icon: const Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
+                                fontWeight: FontWeight.normal,
+                                fontSize: 15),
+                          ),
+                          leading: Icon(
+                            Icons.album,
+                            color: Colors.white,
                           ),
                         ),
                       )

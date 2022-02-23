@@ -53,9 +53,8 @@ class Morceaux extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8.0, right: 25),
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return Container(
+              return SizedBox(
                 height: 45,
-                color: index.isEven ? Colors.black : Colors.grey,
                 child: MorceauItem(
                   morceau: Morceau(
                       artist: 'Nekfeu',
@@ -64,6 +63,7 @@ class Morceaux extends StatelessWidget {
                       album: 'Cyborg',
                       duration: '6:25',
                       title: 'Humanoïde'),
+                  index: index,
                 ),
               );
             },
