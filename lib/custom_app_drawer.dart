@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:photos/widgets/menu_item.dart';
 
 class CustomAppDrawer extends StatefulWidget {
@@ -59,13 +60,10 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                               filled: true,
                               fillColor: Color.fromRGBO(23, 23, 23, 1),
                               contentPadding: EdgeInsets.all(8),
-                              suffixIcon: RotatedBox(
-                                quarterTurns: 1,
-                                child: Icon(
-                                  Icons.search,
-                                  color: Colors.white,
-                                  size: 25,
-                                ),
+                              suffixIcon: Icon(
+                                LineIcons.search,
+                                color: Colors.white,
+                                size: 25,
                               ),
                               focusColor: Colors.white,
                               hintText: "Rechercher",
@@ -90,7 +88,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                                   fontSize: 15),
                             ),
                             leading: Icon(
-                              Icons.music_note_rounded,
+                              LineIcons.music,
                               color: Colors.white,
                             ),
                           )),
@@ -103,7 +101,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                               fontSize: 15),
                         ),
                         leading: Icon(
-                          Icons.access_time,
+                          LineIcons.clock,
                           color: Colors.white,
                         ),
                       ),
@@ -142,7 +140,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                         ),
                         trailing: IconButton(
                           icon: const Icon(
-                            Icons.add,
+                            LineIcons.plus,
                             color: Colors.white,
                           ),
                           onPressed: () {},
@@ -178,44 +176,27 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                       height: 1,
                     ),
                   ),
-                  MouseRegion(
-                    onEnter: (event) {
-                      setState(() {
-                        isSelected = true;
-                      });
-                    },
-                    onExit: (event) {
-                      setState(() {
-                        isSelected = false;
-                      });
-                    },
-                    child: Container(
-                      color: !isSelected ? Colors.transparent : hoverColor,
-                      child: ListTile(
-                        selected: true,
-                        leading: const CircleAvatar(
-                          backgroundColor: Colors.grey,
-                          child: Icon(
-                            Icons.account_circle,
-                            color: Colors.black,
-                          ),
-                        ),
-                        title: const Text(
-                          "Sherlock Holmes",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 15),
-                        ),
-                        onTap: () {},
-                        trailing: IconButton(
-                          icon: const Icon(
-                            Icons.settings,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        ),
+                  MenuItem(
+                    leading: const CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: Icon(
+                        LineIcons.user,
+                        color: Colors.black,
                       ),
+                    ),
+                    title: const Text(
+                      "Sherlock Holmes",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 15),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(
+                        Icons.settings,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
                     ),
                   ),
                 ],

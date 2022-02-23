@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:photos/model/morceau.dart';
 
 class MorceauItem extends StatefulWidget {
@@ -56,13 +57,13 @@ class _MorceauItemState extends State<MorceauItem> {
                                 IconButton(
                                     onPressed: () {},
                                     icon: const Icon(
-                                      Icons.play_arrow_outlined,
+                                      LineIcons.play,
                                       color: Colors.white,
                                     )),
                                 IconButton(
                                     onPressed: () {},
                                     icon: const Icon(
-                                      Icons.add,
+                                      LineIcons.plus,
                                       color: Colors.white,
                                     ))
                               ],
