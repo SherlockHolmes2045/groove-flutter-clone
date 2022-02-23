@@ -81,6 +81,7 @@ class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin{
                               color: Colors.grey,
                               indent: 50,
                               thickness: 0.25,
+                              endIndent: 25,
                               height: 0,
                             ),
                             Expanded(
@@ -88,9 +89,9 @@ class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin{
                                 width: double.infinity,
                                 child: TabBarView(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 8.0),
-                                      child: const Morceaux(),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 8.0),
+                                      child: Morceaux(),
                                     ),
                                     Container(
                                       height: 20,

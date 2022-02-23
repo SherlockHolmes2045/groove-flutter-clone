@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:photos/model/morceau.dart';
+import 'package:photos/widgets/morceau_item.dart';
 
 class Morceaux extends StatelessWidget {
   const Morceaux({Key? key}) : super(key: key);
@@ -45,7 +47,29 @@ class Morceaux extends StatelessWidget {
                   style: TextStyle(color: Colors.grey, fontSize: 11),
                 ))
           ],
-        )
+        ),
+        Expanded(
+            child: Padding(
+          padding: const EdgeInsets.only(top: 8.0, right: 25),
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return Container(
+                height: 45,
+                color: index.isEven ? Colors.black : Colors.grey,
+                child: MorceauItem(
+                  morceau: Morceau(
+                      artist: 'Nekfeu',
+                      year: '2016',
+                      type: 'Rap',
+                      album: 'Cyborg',
+                      duration: '6:25',
+                      title: 'Humanoïde'),
+                ),
+              );
+            },
+            itemCount: 300,
+          ),
+        ))
       ],
     );
   }
