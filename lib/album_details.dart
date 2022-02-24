@@ -141,6 +141,16 @@ class _AlbumDetailsState extends State<AlbumDetails> {
                                 ],
                               )),
                           TextButton(
+                              style: const ButtonStyle(
+                                  /*foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                                    (states) {
+                                  if (states.contains(MaterialState.hovered)) {
+                                    return Colors.green;
+                                  }
+                                  return Colors.black;
+                                },
+                              ),*/
+                                  ),
                               onPressed: () {},
                               child: const Icon(
                                 Icons.more_horiz_outlined,
