@@ -10,12 +10,12 @@ class AlbumPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Album> albums = [
-      Album(name: 'Awakening',artist: 'hiroshi Sato'),
-      Album(name: 'Awakening',artist: 'hiroshi Sato',cover: "https://m.media-amazon.com/images/I/610SNLkeSdL._SS500_.jpg"),
-      Album(name: 'Awakening',artist: 'hiroshi Sato'),
-      Album(name: 'Awakening',artist: 'hiroshi Sato'),
-      Album(name: 'Awakening',artist: 'hiroshi Sato'),
-      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato',cover: "https://m.media-amazon.com/images/I/610SNLkeSdL._SS500_.jpg"),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'Hiroshi Sato'),
     ];
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
