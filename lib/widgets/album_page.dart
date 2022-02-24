@@ -18,6 +18,8 @@ class AlbumPage extends StatelessWidget {
       Album(name: 'Awakening',artist: 'hiroshi Sato'),
     ];
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
