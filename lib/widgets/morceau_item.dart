@@ -19,7 +19,7 @@ class _MorceauItemState extends State<MorceauItem> {
     return Container(
       color: isSelected
           ? const Color.fromRGBO(51, 51, 51, 1)
-          : widget.index.isEven
+          : widget.index.isOdd
               ? Colors.black
               : const Color.fromRGBO(26, 26, 26, 1),
       child: MouseRegion(

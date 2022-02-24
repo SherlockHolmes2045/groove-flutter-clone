@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:photos/model/morceau.dart';
-import 'package:photos/widgets/morceau_item.dart';
 
-class Morceaux extends StatelessWidget {
-  const Morceaux({Key? key}) : super(key: key);
+class AlbumPage extends StatelessWidget {
+  const AlbumPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,26 +52,16 @@ class Morceaux extends StatelessWidget {
         ),
         Expanded(
             child: Padding(
-          padding: const EdgeInsets.only(top: 8.0, right: 25),
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return SizedBox(
-                height: 45,
-                child: MorceauItem(
-                  morceau: Morceau(
-                      artist: 'Nekfeu',
-                      year: '2016',
-                      type: 'Rap',
-                      album: 'Cyborg',
-                      duration: '6:25',
-                      title: 'Humanoïde'),
-                  index: index,
-                ),
-              );
-            },
-            itemCount: 300,
-          ),
-        ))
+              padding: const EdgeInsets.only(top: 8.0, right: 25),
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return SizedBox(
+                    height: 45,
+                  );
+                },
+                itemCount: 300,
+              ),
+            ))
       ],
     );
   }
