@@ -191,7 +191,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
                     ),
                     trailing: IconButton(
                       icon: const Icon(
-                        Icons.settings,
+                        LineIcons.cog,
                         color: Colors.white,
                       ),
                       onPressed: () {},

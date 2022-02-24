@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:photos/widgets/album_item.dart';
+
+import '../model/album.dart';
 
 class AlbumPage extends StatelessWidget {
   const AlbumPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<Album> albums = [
+      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'hiroshi Sato',cover: "https://m.media-amazon.com/images/I/610SNLkeSdL._SS500_.jpg"),
+      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+      Album(name: 'Awakening',artist: 'hiroshi Sato'),
+    ];
     return Column(
       children: [
         Row(
@@ -53,13 +64,13 @@ class AlbumPage extends StatelessWidget {
         Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 8.0, right: 25),
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    height: 45,
-                  );
-                },
-                itemCount: 300,
+              child: Wrap(
+                spacing: 15.0,
+                children: [
+                  ...List.generate(albums.length, (index) {
+                    return AlbumItem(album: albums[index]);
+                  })
+                ],
               ),
             ))
       ],
