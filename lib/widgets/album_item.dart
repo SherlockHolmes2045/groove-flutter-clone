@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:photos/album_details.dart';
 import 'package:photos/model/album.dart';
 
 class AlbumItem extends StatefulWidget {
@@ -29,59 +30,64 @@ class _AlbumItemState extends State<AlbumItem> {
               isHovered = false;
             });
           },
-          child: Container(
-              height: 150,
-              width: 150,
-              color:  const Color.fromRGBO(43, 43, 43, 1),
-              child: Stack(
-                children: [
-                  const Align(
-                    alignment: Alignment.center,
-                    child: Icon(
-                      LineIcons.compactDisc,
-                      color: Colors.grey,
-                      size: 60,
-                    ),
-                  ),
-                  if (isHovered)
-                    Align(
+          child: InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AlbumDetails(album: widget.album,)));
+            },
+            child: Container(
+                height: 150,
+                width: 150,
+                color:  const Color.fromRGBO(43, 43, 43, 1),
+                child: Stack(
+                  children: [
+                    const Align(
                       alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromRGBO(37, 37, 37, 1),
-                                    shape: BoxShape.circle),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      LineIcons.play,
-                                      color: Colors.white,
-                                    ))),
-                            Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromRGBO(37, 37, 37, 1),
-                                    shape: BoxShape.circle),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      LineIcons.plus,
-                                      color: Colors.white,
-                                    )))
-                          ],
-                        ),
+                      child: Icon(
+                        LineIcons.compactDisc,
+                        color: Colors.grey,
+                        size: 60,
                       ),
-                    )
-                ],
-              )),
+                    ),
+                    if (isHovered)
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(37, 37, 37, 1),
+                                      shape: BoxShape.circle),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        LineIcons.play,
+                                        color: Colors.white,
+                                      ))),
+                              Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(37, 37, 37, 1),
+                                      shape: BoxShape.circle),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        LineIcons.plus,
+                                        color: Colors.white,
+                                      )))
+                            ],
+                          ),
+                        ),
+                      )
+                  ],
+                )),
+          ),
         )
             : MouseRegion(
           onEnter: (event) {
@@ -94,59 +100,64 @@ class _AlbumItemState extends State<AlbumItem> {
               isHovered = false;
             });
           },
-          child: Container(
-              height: 150,
-              width: 150,
-              decoration: BoxDecoration(
-                color:  const Color.fromRGBO(43, 43, 43, 1),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    widget.album.cover!
-                  )
-                )
-              ),
-              child: Stack(
-                children: [
-                  if (isHovered)
-                    Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromRGBO(37, 37, 37, 1),
-                                    shape: BoxShape.circle),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      LineIcons.play,
-                                      color: Colors.white,
-                                    ))),
-                            Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromRGBO(37, 37, 37, 1),
-                                    shape: BoxShape.circle),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      LineIcons.plus,
-                                      color: Colors.white,
-                                    )))
-                          ],
-                        ),
-                      ),
+          child: InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  AlbumDetails(album: widget.album,)));
+            },
+            child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  color:  const Color.fromRGBO(43, 43, 43, 1),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      widget.album.cover!
                     )
-                ],
-              )),
+                  )
+                ),
+                child: Stack(
+                  children: [
+                    if (isHovered)
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding:
+                          const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(37, 37, 37, 1),
+                                      shape: BoxShape.circle),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        LineIcons.play,
+                                        color: Colors.white,
+                                      ))),
+                              Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(37, 37, 37, 1),
+                                      shape: BoxShape.circle),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        LineIcons.plus,
+                                        color: Colors.white,
+                                      )))
+                            ],
+                          ),
+                        ),
+                      )
+                  ],
+                )),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),

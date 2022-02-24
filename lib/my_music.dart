@@ -13,6 +13,8 @@ class MyMusic extends StatefulWidget {
 
 class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final navKey = GlobalKey<NavigatorState>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -25,9 +27,10 @@ class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: Row(
         children: [
-          const CustomAppDrawer(),
+          CustomAppDrawer(navkey: navKey,),
           Expanded(
             child: Navigator(
+              key: navKey,
               onGenerateRoute: (routeSettings) {
                 return MaterialPageRoute(
                     builder: (context) => Container(

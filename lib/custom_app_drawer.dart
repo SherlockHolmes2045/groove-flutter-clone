@@ -3,7 +3,8 @@ import 'package:line_icons/line_icons.dart';
 import 'package:photos/widgets/menu_item.dart';
 
 class CustomAppDrawer extends StatefulWidget {
-  const CustomAppDrawer({Key? key}) : super(key: key);
+  const CustomAppDrawer({Key? key, required this.navkey}) : super(key: key);
+  final GlobalKey<NavigatorState> navkey;
 
   @override
   _CustomAppDrawerState createState() => _CustomAppDrawerState();
@@ -20,15 +21,58 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 10, left: 14.0),
-            child: Text(
-              "Groove Musique",
-              style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                  fontSize: 11.5),
-            ),
+          Row(
+            children: [
+              if (Navigator.of(context).canPop())
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).maybePop();
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    )),
+
+              /*FutureBuilder<bool>(
+                future: widget.navkey.currentState!.maybePop(),
+                builder: (
+                  BuildContext context,
+                  AsyncSnapshot<bool> snapshot,
+                ) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const SizedBox.shrink();
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return const SizedBox.shrink();
+                    } else if (snapshot.hasData) {
+                      if (snapshot.data!) {
+                        return IconButton(
+                            onPressed: () {
+                              widget.navkey.currentState!.canPop();
+                            },
+                            icon: const Icon(Icons.arrow_back,color: Colors.white,));
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
+              ),*/
+              const Padding(
+                padding: EdgeInsets.only(top: 10, left: 14.0),
+                child: Text(
+                  "Groove Musique",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      fontSize: 12),
+                ),
+              ),
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(top: 20, left: 14.0),
