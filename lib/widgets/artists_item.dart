@@ -11,25 +11,135 @@ class ArtistItem extends StatefulWidget {
 }
 
 class _ArtistItemState extends State<ArtistItem> {
+  bool isHovered = false;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         widget.artist.picture == null || widget.artist.picture == ""
-            ? const CircleAvatar(
-                radius: 85,
-                backgroundColor: Color.fromRGBO(23, 23, 23, 1),
-                child: Icon(
-                  LineIcons.user,
-                  color: Colors.grey,
-                  size: 60,
-                ))
-            : CircleAvatar(
-                radius: 85,
-                backgroundImage: NetworkImage(
-                  widget.artist.picture!,
-                ),
-                backgroundColor: const Color.fromRGBO(23, 23, 23, 1),
+            ? MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    isHovered = true;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    isHovered = false;
+                  });
+                },
+                child: CircleAvatar(
+                    radius: 85,
+                    backgroundColor: const Color.fromRGBO(23, 23, 23, 1),
+                    child: Stack(
+                      children: [
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            LineIcons.user,
+                            color: Colors.grey,
+                            size: 60,
+                          ),
+                        ),
+                        if (isHovered)
+                          Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 30.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(37, 37, 37, 1),
+                                          shape: BoxShape.circle),
+                                      child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            LineIcons.play,
+                                            color: Colors.white,
+                                          ))),
+                                  Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(37, 37, 37, 1),
+                                          shape: BoxShape.circle),
+                                      child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            LineIcons.plus,
+                                            color: Colors.white,
+                                          )))
+                                ],
+                              ),
+                            ),
+                          )
+                      ],
+                    )),
+              )
+            : MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    isHovered = true;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    isHovered = false;
+                  });
+                },
+                child: CircleAvatar(
+                    radius: 85,
+                    backgroundImage: NetworkImage(
+                      widget.artist.picture!,
+                    ),
+                    backgroundColor: const Color.fromRGBO(23, 23, 23, 1),
+                    child: Stack(
+                      children: [
+                        if (isHovered)
+                          Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(37, 37, 37, 1),
+                                          shape: BoxShape.circle),
+                                      child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            LineIcons.play,
+                                            color: Colors.white,
+                                          ))),
+                                  Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(37, 37, 37, 1),
+                                          shape: BoxShape.circle),
+                                      child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            LineIcons.plus,
+                                            color: Colors.white,
+                                          )))
+                                ],
+                              ),
+                            ),
+                          )
+                      ],
+                    )),
               ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),

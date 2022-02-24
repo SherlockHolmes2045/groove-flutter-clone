@@ -45,7 +45,7 @@ class AlbumPage extends StatelessWidget {
             TextButton(
                 onPressed: () {},
                 child: const Text(
-                  "Date d'ajout",
+                  "Tous les genres",
                   style: TextStyle(color: Colors.grey, fontSize: 11),
                 ))
           ],
