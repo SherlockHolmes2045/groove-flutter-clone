@@ -25,8 +25,8 @@ class _AlbumDetailsState extends State<AlbumDetails> {
             backgroundColor: const Color.fromRGBO(65, 47, 47, 1),
             flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
-                  top = constraints.biggest.height;
-                  print(top);
+              top = constraints.biggest.height;
+              print(top);
               return Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 35.0, vertical: 25.0),
@@ -71,12 +71,12 @@ class _AlbumDetailsState extends State<AlbumDetails> {
                                         fontSize: 28,
                                         fontWeight: FontWeight.normal),
                                   ),
-                                  if( top > 160)...[
+                                  if (top > 160) ...[
                                     Padding(
                                       padding: const EdgeInsets.only(top: 4.0),
                                       child: Text(
                                         widget.album.artist == null ||
-                                            widget.album.artist == ""
+                                                widget.album.artist == ""
                                             ? "Artiste inconnu"
                                             : widget.album.artist!,
                                         style: const TextStyle(
@@ -89,7 +89,7 @@ class _AlbumDetailsState extends State<AlbumDetails> {
                                       children: [
                                         Text(
                                           widget.album.year == null ||
-                                              widget.album.year == ""
+                                                  widget.album.year == ""
                                               ? "Année inconnue"
                                               : widget.album.year!,
                                           style: const TextStyle(
@@ -110,7 +110,7 @@ class _AlbumDetailsState extends State<AlbumDetails> {
                                         ),
                                         Text(
                                           widget.album.genre == null ||
-                                              widget.album.genre == ""
+                                                  widget.album.genre == ""
                                               ? "Genre inconnu"
                                               : widget.album.genre!,
                                           style: const TextStyle(
