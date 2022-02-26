@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:photos/model/album.dart';
+import 'package:photos/widgets/morceau_item.dart';
+
+import 'model/morceau.dart';
 
 class AlbumDetails extends StatefulWidget {
   const AlbumDetails({Key? key, required this.album}) : super(key: key);
@@ -241,14 +244,25 @@ class _AlbumDetailsState extends State<AlbumDetails> {
                       ]));
             })),
         SliverList(
+
           delegate: SliverChildBuilderDelegate(
+
             (_, int index) {
-              return ListTile(
-                leading: Container(
-                    padding: const EdgeInsets.all(8),
-                    width: 100,
-                    child: const Placeholder()),
-                title: Text('Place ${index + 1}', textScaleFactor: 2),
+              return Padding(
+                padding: EdgeInsets.only(left: 20,right: 25),
+                child: SizedBox(
+                  height: 45,
+                  child: MorceauItem(
+                    morceau: Morceau(
+                        artist: 'Nekfeu',
+                        year: '2016',
+                        type: 'Rap',
+                        album: 'Cyborg',
+                        duration: '6:25',
+                        title: 'Humanoïde'),
+                    index: index,
+                  ),
+                ),
               );
             },
             childCount: 20,

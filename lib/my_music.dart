@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:photos/custom_app_drawer.dart';
 import 'package:photos/widgets/album_page.dart';
@@ -16,12 +16,17 @@ class MyMusic extends StatefulWidget {
 class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final navKey = GlobalKey<NavigatorState>();
+  final player = AudioPlayer();
+  initialise() async{
+    var duration = await player.setFilePath("H:\\musique\\city pop\\1. 12月のパリ.mp3");
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    initialise();
   }
 
   @override
@@ -204,7 +209,9 @@ class _MyMusicState extends State<MyMusic> with SingleTickerProviderStateMixin {
                             ),
                           ),
                           RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              player.play();
+                            },
                             elevation: 2.0,
                             child: const Icon(
                               LineIcons.pause,

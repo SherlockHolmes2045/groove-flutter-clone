@@ -39,6 +39,11 @@ dependencies:
   responsive_builder: ^0.4.2
   responsive_framework: ^0.1.7
   just_audio: ^0.9.20
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+  fluent_ui: ^3.9.1
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +55,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  msix: ^3.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -92,3 +98,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+msix_config:
+  display_name: Groove Flutter Clone
+  app_installer: #<-- app installer configuration
+    publish_folder_path: G:\test
+    hours_between_update_checks: 0
+    automatic_background_task: true
+    update_blocks_activation: true
+    show_prompt: true
+    force_update_from_any_version: false
+  msix_version: 1.0.3.0

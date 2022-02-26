@@ -1,8 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:photos/my_music.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle('Groove FLutter Clone');
+    setWindowMinSize(const Size(600, 600));
+    setWindowMaxSize(Size.infinite);
+  }
   ResponsiveSizingConfig.instance.setCustomBreakpoints(
     const ScreenBreakpoints(tablet: 600, desktop: 950, watch: 300),
   );
